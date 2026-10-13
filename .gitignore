@@ -1,0 +1,12 @@
+﻿################################################################################
+# Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
+################################################################################
+
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/weblabs.iml
+/backend1/.vs/backend1
+/backend1/bin/Debug/net8.0
+/backend1/obj
+/.idea
+/backend1/backend1.csproj.user
