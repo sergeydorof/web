@@ -10,3 +10,8 @@
 /backend1/obj
 /.idea
 /backend1/backend1.csproj.user
+/backend1/.vs/ProjectEvaluation
+/backend2/.vs/backend2
+/backend2/bin/Debug/net8.0
+/backend2/obj
+/backend2/backend2.csproj.user

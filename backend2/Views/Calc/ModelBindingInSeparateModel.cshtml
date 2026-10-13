@@ -1,0 +1,11 @@
+﻿@model backend2.Models.CalcModel
+<h2>ModelBindingInSeparateModel</h2>
+<form asp-action="ModelBindingInSeparateModel" method="post">
+    <input asp-for="A" type="number" /><br />
+    <select asp-for="Op">
+        <option value="+">+</option><option value="-">-</option>
+        <option value="*">*</option><option value="/">/</option>
+    </select><br />
+    <input asp-for="B" type="number" /><br />
+    <input type="submit" value="Submit" />
+</form>

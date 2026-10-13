@@ -1,0 +1,8 @@
+﻿<h2>ModelBindingInParameters</h2>
+@using (Html.BeginForm("ModelBindingInParameters", "Calc", FormMethod.Post))
+{
+    @Html.TextBox("a", null, new { type = "number" })<br />
+    @Html.DropDownList("op", new SelectList(new[] { "+", "-", "*", "/" }))<br />
+    @Html.TextBox("b", null, new { type = "number" })<br />
+    <input type="submit" value="Submit" />
+}
