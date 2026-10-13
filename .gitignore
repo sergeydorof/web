@@ -15,3 +15,8 @@
 /backend2/bin/Debug/net8.0
 /backend2/obj
 /backend2/backend2.csproj.user
+/backend2/.vs/ProjectEvaluation
+/backend3/.vs
+/backend3/bin/Debug/net8.0
+/backend3/obj
+*.user

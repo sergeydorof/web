@@ -1,0 +1,23 @@
+@model QuizViewModel
+@{
+    ViewData["Title"] = "Hello Quiz";
+}
+
+<h2>Quiz</h2>
+
+<form asp-action="Quiz" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <input type="hidden" asp-for="Step" />
+
+    <div class="form-group">
+        <label asp-for="Answer" class="control-label">@Model.Question =</label>
+        <input asp-for="Answer" class="form-control" autocomplete="off" autofocus />
+        <span asp-validation-for="Answer" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" name="command" value="next" class="btn btn-default">Next</button>
+        <button type="submit" name="command" value="finish" class="btn btn-primary">Finish</button>
+    </div>
+</form>

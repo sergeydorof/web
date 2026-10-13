@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "Backend3": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "Mockups",
+      "applicationUrl": "http://localhost:60072",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
