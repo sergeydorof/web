@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор фигур</title>
+    <style>
+        :root {
+            --size: 100px;
+            --half-size: 50px;
+        }
+        /* Сброс базовых отступов и запрет на появление скролла */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            /* Запрещаем выделение текста при двойном клике */
+            user-select: none;
+        }
+
+        /* Панель управления */
+        #controls {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+        }
+
+        #shapeCount {
+            width: 150px;
+            margin-bottom: 5px;
+            padding: 2px;
+            border: 1px solid #a9a9a9;
+        }
+
+        button {
+            padding: 2px 8px;
+            border: 1px solid #a9a9a9;
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Контейнер для фигур */
+        #canvas {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Базовые стили для всех фигур */
+        .shape {
+            position: absolute;
+            cursor: pointer;
+            /* Добавляем легкую прозрачность, как на скриншоте с множеством фигур */
+            opacity: 0.85;
+            transition: background-color 0.2s, border-bottom-color 0.2s;
+        }
+
+        /* Квадрат */
+        .square {
+            width: var(--size);
+            height: var(--size);
+            background-color: red;
+            border: 1px solid black;
+        }
+
+        /* Круг */
+        .circle {
+            width: var(--size);
+            height: var(--size);
+            background-color: green;
+            border-radius: 50%;
+            border: 1px solid black;
+        }
+
+        /* Треугольник (создается с помощью CSS-границ) */
+        .triangle {
+            width: 0;
+            height: 0;
+            background-color: transparent;
+            border-left: var(--half-size) solid transparent;
+            border-right: var(--half-size) solid transparent;
+            border-bottom: var(--size) solid blue;
+        }
+
+        /* Класс выделенной фигуры (желтый цвет) */
+        .square.selected {
+            background-color: yellow;
+        }
+
+        .circle.selected {
+            background-color: yellow;
+        }
+
+        .triangle.selected {
+            border-bottom-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Панель управления -->
+<div id="controls">
+    <input type="number" id="shapeCount" value="1" min="1"><br>
+    <button id="btnSquare">Квадрат</button>
+    <button id="btnTriangle">Треугольник</button>
+    <button id="btnCircle">Круг</button>
+</div>
+
+<!-- Область, где будут появляться фигуры -->
+<div id="canvas"></div>
+
+<script>
+    const canvas = document.getElementById('canvas');
+    const inputCount = document.getElementById('shapeCount');
+
+    // Обработчики нажатий на кнопки создания фигур
+    document.getElementById('btnSquare').addEventListener('click', () => generateShapes('square'));
+    document.getElementById('btnTriangle').addEventListener('click', () => generateShapes('triangle'));
+    document.getElementById('btnCircle').addEventListener('click', () => generateShapes('circle'));
+
+    // Функция для получения случайного числа в заданном диапазоне
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    // Функция генерации фигур
+    function generateShapes(type) {
+        // Получаем количество из инпута (если пусто или ошибка, берем 1)
+        let count = parseInt(inputCount.value);
+        if (isNaN(count) || count < 1) count = 1;
+
+        const maxWidth = window.innerWidth;
+        const maxHeight = window.innerHeight;
+
+        for (let i = 0; i < count; i++) {
+            const shape = document.createElement('div');
+            shape.classList.add('shape', type);
+
+            // Случайный размер от 50 до 250 пикселей
+            const size = getRandomInt(50, 250);
+
+            // Случайная позиция (вычитаем размер, чтобы фигура не уходила за пределы экрана)
+            const x = getRandomInt(0, maxWidth - size);
+            const y = getRandomInt(0, maxHeight - size);
+
+            // Передаем размеры в CSS через переменные
+            shape.style.setProperty('--size', `${size}px`);
+            shape.style.setProperty('--half-size', `${size / 2}px`);
+
+            // Устанавливаем координаты
+            shape.style.left = `${x}px`;
+            shape.style.top = `${y}px`;
+
+            // Добавляем фигуру на страницу (в DOM)
+            canvas.appendChild(shape);
+        }
+    }
+
+    // Обработка кликов по фигурам (Выделение)
+    canvas.addEventListener('click', (event) => {
+        // Если кликнули именно по фигуре
+        if (event.target.classList.contains('shape')) {
+            // Снимаем выделение со всех остальных фигур
+            document.querySelectorAll('.shape').forEach(el => el.classList.remove('selected'));
+            // Добавляем выделение текущей
+            event.target.classList.add('selected');
+        } else {
+            // Если кликнули по пустому месту — снимаем выделение со всех
+            document.querySelectorAll('.shape').forEach(el => el.classList.remove('selected'));
+        }
+    });
+
+    // Обработка двойного клика (Удаление)
+    canvas.addEventListener('dblclick', (event) => {
+        if (event.target.classList.contains('shape')) {
+            event.target.remove();
+        }
+    });
+</script>
+</body>
+</html>

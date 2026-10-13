@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Frontend Task№9</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 10px;
+    }
+    .row {
+      display: flex;
+    }
+    .row input {
+      width: 150px;
+      box-sizing: border-box;
+      margin: 0;
+    }
+    .row button {
+      width: 30px;
+      margin: 0;
+      cursor: pointer;
+    }
+    .controls {
+      margin-top: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+    }
+    #result {
+      margin-top: 5px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+<div id="container"></div>
+
+<div class="controls">
+  <button id="add-btn">Добавить элемент</button>
+  <button id="save-btn">Сохранить</button>
+</div>
+
+<div id="result"></div>
+
+<script>
+  const container = document.getElementById('container');
+  const addBtn = document.getElementById('add-btn');
+  const saveBtn = document.getElementById('save-btn');
+  const resultDiv = document.getElementById('result');
+
+  // Функция создания новой строки
+  function createRow(key = '', value = '') {
+    const rowDiv = document.createElement('div');
+    rowDiv.className = 'row';
+
+    const keyInput = document.createElement('input');
+    keyInput.type = 'text';
+    keyInput.value = key;
+
+    const valueInput = document.createElement('input');
+    valueInput.type = 'text';
+    valueInput.value = value;
+
+    const upBtn = document.createElement('button');
+    upBtn.textContent = '↑';
+    upBtn.onclick = () => {
+      if (rowDiv.previousElementSibling) {
+        container.insertBefore(rowDiv, rowDiv.previousElementSibling);
+      }
+    };
+
+    const downBtn = document.createElement('button');
+    downBtn.textContent = '↓';
+    downBtn.onclick = () => {
+      if (rowDiv.nextElementSibling) {
+        container.insertBefore(rowDiv.nextElementSibling, rowDiv);
+      }
+    };
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'x';
+    deleteBtn.onclick = () => {
+      rowDiv.remove();
+    };
+
+    rowDiv.appendChild(keyInput);
+    rowDiv.appendChild(valueInput);
+    rowDiv.appendChild(upBtn);
+    rowDiv.appendChild(downBtn);
+    rowDiv.appendChild(deleteBtn);
+
+    container.appendChild(rowDiv);
+  }
+
+  // Обработчик кнопки "Добавить элемент"
+  addBtn.addEventListener('click', () => {
+    createRow();
+  });
+
+  // Обработчик кнопки "Сохранить"
+  saveBtn.addEventListener('click', () => {
+    const data = {};
+    const rows = container.querySelectorAll('.row');
+
+    rows.forEach(row => {
+      const inputs = row.querySelectorAll('input');
+      const key = inputs[0].value;
+      const value = inputs[1].value;
+
+      if (key !== '') {
+        data[key] = value;
+      }
+    });
+
+    resultDiv.textContent = JSON.stringify(data);
+  });
+
+  // Инициализация первой пустой строки при загрузке (как на рис. 8.1)
+  createRow();
+</script>
+</body>
+</html>

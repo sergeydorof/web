@@ -1,0 +1,147 @@
+/* Базовые стили для черного фона и скрытия скроллов */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    overflow: hidden;
+}
+
+/* =========================================
+   Фокус 1. Занавес
+   ========================================= */
+#curtain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('Curtain.jpg');
+    background-size: cover;
+    background-position: center bottom;
+    z-index: 10;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+#curtain:hover {
+    transform: translateY(-5%);
+}
+
+#curtain.opened {
+    transform: translateY(-100%);
+    transition: transform 1s ease;
+}
+
+/* =========================================
+   Фокус 2. Да будет свет
+   ========================================= */
+#stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+}
+
+#lamp-container {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#lamp {
+    height: 150px;
+    z-index: 5;
+    position: relative;
+}
+
+#light-beam {
+    position: absolute;
+    top: 100px;
+    left: 20%;
+    width: 60%;
+    height: calc(100% - 100px);
+    background-color: yellow;
+    clip-path: polygon(50% 0, 0 100%, 100% 100%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 4;
+    pointer-events: none;
+}
+
+#light-beam.on {
+    opacity: 0.5;
+}
+
+/* =========================================
+   Скрытые во тьме объекты
+   ========================================= */
+#scene-objects {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+#scene-objects.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#magician {
+    position: absolute;
+    bottom: 5%;
+    left: 25%;
+    height: 40%;
+    z-index: 3;
+}
+
+/* =========================================
+   Фокус 3. Кролик и его друзья
+   ========================================= */
+#magic-hat-container {
+    position: absolute;
+    bottom: 5%;
+    right: 25%;
+    width: 180px;
+    height: 380px; /* Увеличена высота контейнера, чтобы животные свободно помещались сверху */
+    z-index: 3;
+    overflow: hidden; /* Обрезает животное только снизу, под шляпой */
+}
+
+#hat {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 3; /* Шляпа строго спереди животных */
+}
+
+/* Настройки для животных */
+.animal {
+    position: absolute;
+    bottom: 160px; /* Выставляем высоту выезда над шляпой */
+    width: 50%;   /* Подходящий размер животных */
+    z-index: 2;   /* Находятся за шляпой */
+    cursor: pointer;
+    transition: transform 0.5s ease;
+
+    left: 50%;
+}
+
+/* Когда животное показано — оно над шляпой */
+.visible-animal {
+    transform: translate(-50%, 0);
+    pointer-events: auto;
+}
+
+/* Когда спрятано — уезжает глубоко вниз под шляпу */
+.hidden-animal {
+    transform: translate(-50%, 280px);
+    pointer-events: none;
+}

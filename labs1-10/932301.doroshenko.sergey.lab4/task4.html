@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <title> намеренно нет: на скриншотах во вкладке отображается имя файла "task4.html" -->
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding-top: 46px;              /* место под фиксированную шапку */
+    background: #ebedf0;
+    font: 16px Arial, Helvetica, sans-serif;
+    color: #000;
+  }
+
+  a { color: #3d5b7d; text-decoration: none; }
+
+  /* Выделение текста: зелёный текст на светло-серой подложке */
+  ::selection { background: #dfe3ed; color: green; }
+
+  /* ---------- Шапка (фиксированная) ---------- */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 46px;
+    background: #50749b;
+    z-index: 10;
+  }
+  header img {
+    display: block;
+    height: 32px;
+    margin: 8px 0 0 14%;
+  }
+
+  /* ---------- Каркас: меню + лента ---------- */
+  .wrapper {
+    display: flex;
+    align-items: flex-start;
+    width: 88%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  nav {
+    flex: 0 0 200px;
+    padding-top: 10px;
+  }
+  nav a {
+    display: block;
+    padding: 10px;
+  }
+  nav a:hover { background: #dfe3ed; }
+
+  main {
+    flex: 0 0 460px;
+    margin: 15px 20px 0;
+  }
+
+  /* ---------- Карточки ленты ---------- */
+  .card, .side {
+    background: #fff;
+    box-shadow: 0 0 0 1px #e3e6ea;
+    margin-bottom: 20px;
+  }
+  .card {
+    border-radius: 12px;
+    padding: 20px 20px 16px;
+    overflow: hidden;
+  }
+  .card.has-head { padding: 0; }
+
+  .card .text {
+    margin: 0;
+    padding-bottom: 10px;
+    text-align: justify;
+  }
+  .card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 12px;
+  }
+  .card h2 {
+    margin: 0;
+    padding: 20px 20px 9px;
+    font-size: 16px;
+    border-bottom: 3px solid #d3d3d3;
+  }
+  .card .body { padding: 7px 20px 16px; }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 7px;
+    border-top: 3px solid #d3d3d3;
+  }
+
+  /* ---------- Правая колонка (фиксированная) ---------- */
+  aside {
+    position: fixed;
+    top: 66px;
+    left: calc(50% + 371px);
+    width: 160px;
+  }
+  .side {
+    border-radius: 8px;
+    padding: 10px;
+  }
+  .side p  { margin: 16px 0; background: #ebedf0; }
+  .side h4 { margin: 15px 6px; font-size: 16px; }
+
+  /* ---------- Подвал ---------- */
+  footer {
+    background: #fff;
+    padding: 6px 0;
+    text-align: center;
+    color: #808080;
+  }
+
+  /* ---------- Адаптивность ---------- */
+  @media (max-width: 1099px) {        /* правая колонка скрывается */
+    aside { display: none; }
+  }
+
+  @media (max-width: 800px) {         /* меню уходит наверх и центрируется */
+    .wrapper { display: block; width: auto; max-width: none; margin: 0; }
+    nav { text-align: center; padding-bottom: 23px; }
+    nav a { display: inline-block; }
+    main { max-width: calc(100% - 40px); }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="logo.png" alt="Web">
+</header>
+
+<div class="wrapper">
+  <nav>
+    <a href="#">Main page</a>
+    <a href="#">Secondary page</a>
+    <a href="#">Some other page</a>
+    <a href="#">More pages to the god of pages</a>
+    <a href="#">The last page</a>
+  </nav>
+
+  <main>
+    <!-- 1. Текстовая карточка -->
+    <div class="card">
+      <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <div class="actions"><a href="#">Like</a><a href="#">Comment</a></div>
+    </div>
+
+    <!-- 2. Карточка с картинкой -->
+    <div class="card">
+      <img src="cat.png" alt="Cat">
+      <div class="actions"><a href="#">Like</a><a href="#">Comment</a></div>
+    </div>
+
+    <!-- 3. Карточка с заголовком -->
+    <div class="card has-head">
+      <h2>Some header</h2>
+      <div class="body">
+        <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <div class="actions"><a href="#">Like</a><a href="#">Comment</a></div>
+      </div>
+    </div>
+
+    <!-- 4. Текстовая карточка -->
+    <div class="card">
+      <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <div class="actions"><a href="#">Like</a><a href="#">Comment</a></div>
+    </div>
+
+    <!-- 5. Текстовая карточка -->
+    <div class="card">
+      <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <div class="actions"><a href="#">Like</a><a href="#">Comment</a></div>
+    </div>
+  </main>
+</div>
+
+<aside>
+  <div class="side">
+    <p>Very important information!</p>
+    <p>Many,many very usefull and important information!.</p>
+  </div>
+  <div class="side">
+    <h4>Some new header!</h4>
+    <p>For example, some new and usefull fixed text. And many another text and more text ...</p>
+  </div>
+</aside>
+
+<footer>Simple footer (text in the center).</footer>
+
+</body>
+</html>

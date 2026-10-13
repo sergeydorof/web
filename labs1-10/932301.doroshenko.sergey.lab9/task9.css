@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+/* Синяя внешняя рамка калькулятора */
+.calculator-container {
+    display: inline-block;
+    border: 2px solid #5b93bc;
+    padding: 12px;
+    background-color: #ffffff;
+    width: 270px;
+}
+
+/* Экран калькулятора */
+.display {
+    width: 100%;
+    height: 44px;
+    border: 1px solid #7f7f7f;
+    background-color: #ffffff;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 10px;
+    font-size: 22px;
+    color: #000000;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* Цвет для ранее введенных операторов и чисел */
+.display .history {
+    color: #a0a0a0;
+}
+
+/* Сетка кнопок 5x4 */
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 40px);
+    gap: 6px;
+}
+
+/* Оформление кнопок */
+.btn {
+    background: linear-gradient(to bottom, #f8f8f8 0%, #e2e2e2 100%);
+    border: 1px solid #adadad;
+    border-radius: 2px;
+    font-size: 18px;
+    color: #000000;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 12px;
+    outline: none;
+}
+
+.btn:hover {
+    background: linear-gradient(to bottom, #ffffff 0%, #ebebeb 100%);
+}
+
+.btn:focus, .btn:active {
+    border-color: #7097d1;
+    background: #eaf1fb;
+}
+
+/* Кнопка 0 занимает 2 колонки по ширине */
+.btn-zero {
+    grid-column: span 2;
+}
+
+/* Кнопка = занимает 2 строки по высоте */
+.btn-equals {
+    grid-row: span 2;
+}

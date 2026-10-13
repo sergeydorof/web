@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: white;
+            color: black;
+        }
+
+        /* Выделение текста как на фото */
+        ::selection {
+            background: green;
+            color: white;
+        }
+
+        ::-moz-selection {
+            background: green;
+            color: white;
+        }
+
+        header {
+            height: 50px;
+            background: green;
+            color: white;
+            text-align: center;
+            font-size: 26px;
+            line-height: 50px;
+        }
+
+        .layout {
+            width: 800px;
+            max-width: 100%;
+            margin: 0 auto;
+            display: flex;
+            min-height: calc(100vh - 80px);
+        }
+
+        .sidebar {
+            flex: 0 0 200px;
+            width: 200px;
+            background: red;
+            padding: 25px 30px 25px 50px;
+        }
+
+        .sidebar a {
+            display: table;
+            width: fit-content;
+            max-width: 120px;
+            margin: 0 0 8px 0;
+            color: white;
+            font-size: 16px;
+            line-height: 21px;
+            text-decoration: underline;
+        }
+
+        .sidebar a:hover,
+        .sidebar a:focus,
+        .sidebar a:active {
+            background: green;
+        }
+
+        main {
+            flex: 1;
+            min-width: 0;
+            padding: 30px;
+            background: white;
+        }
+
+        main p {
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            line-height: 18px;
+            text-align: justify;
+        }
+
+        /*
+         * L больше не "проваливается" вниз:
+         * float:left и line-height совпадает с текстом.
+         * Остальной текст начинает идти сразу справа от L.
+         */
+        .dropcap {
+            color: red;
+            font-size: 32px;
+            line-height: 18px;
+            font-weight: normal;
+            width: 10px;
+            margin: 0 1px 0 0;
+        }
+
+        footer {
+            height: 30px;
+            background: black;
+            color: white;
+            text-align: center;
+            font-size: 16px;
+            line-height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>Header</header>
+
+<div class="layout">
+    <aside class="sidebar">
+        <a href="#" onclick="return false;">Main page</a>
+        <a href="#" onclick="return false;">Secondary page</a>
+        <a href="#" onclick="return false;">Some other page</a>
+        <a href="#" onclick="return false;">More pages to the god of pages</a>
+        <a href="#" onclick="return false;">The last page</a>
+    </aside>
+
+    <main>
+        <p>
+            <span class="dropcap">L</span>orem ipsum dolor sit amet, consectetur adipisicing elit. Ratione eos iusto
+            provident nihil, laboriosam esse ab minima est, in sit enim officia sunt
+            sapiente vitae illo, dolorem! Sint debitis nesciunt ducimus ab magnam
+            necessitatibus asperiores enim voluptate, dolores reiciendis iure. Nisi odio
+            in consectetur inventore enim quasi ipsam velit eius eligendi quis eaque iusto
+            suscipit quod accusamus temporibus molestiae, facere, laborum quos, rem repellat
+            earum error expedita consequatur. Illum eos, debitis distinctio porro maiores
+            velit quia accusantium quae voluptatem quidem minima, facilis impedit ut. Odio
+            praesentium ea itaque voluptates numquam consectetur temporibus facilis qui magni
+            velit laborum dicta earum beatae laudantium voluptatem sed deleniti dolores alias
+            atque, repudiandae unde. Mollitia molestiae dolore tenetur, rem illum eveniet
+            ratione, laboriosam repudiandae inventore expedita veniam asperiores non excepturi
+            suscipit quod corrupti. Laborum debitis eveniet maxime vitae aliquid nulla sit
+            fugiat voluptatem, soluta laudantium ad voluptatum in vel non sequi labore. Culpa
+            autem, corporis, nobis cupiditate laboriosam numquam, itaque natus aperiam ut
+            deserunt adipisci magni debitis fugit eum temporibus voluptatum ipsam rem commodi.
+            Autem aliquam dolorem earum. Beatae reiciendis incidunt molestiae soluta earum,
+            expedita odit tempora vel eveniet provident ab aut vero dolor assumenda, minus quia
+            saepe nulla a id. Quia corrupti, non velit!
+        </p>
+    </main>
+</div>
+
+<footer>Footer</footer>
+
+</body>
+</html>

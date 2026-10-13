@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 2.7</title>
+  <style>
+      div {
+          color: white;
+      }
+      #div1 {
+          width: 150px;
+          height: 100px;
+          background-color: blueviolet;
+      }
+      #div2 {
+          position: relative;
+          width: 150px;
+          height: 100px;
+          background-color: darkred;
+      }
+      #div3 {
+          position: relative;
+          width: 150px;
+          height: 100px;
+          background-color: peru;
+          left: 20px;
+          bottom: 20px;
+      }
+      #div4 {
+          position: relative;
+          width: 650px;
+          height: 300px;
+          background-color: indianred;
+      }
+      #child {
+          position: absolute;
+          width: 350px;
+          height: 150px;
+          background-color: indigo;
+          right: 0;
+          bottom: 50px;
+      }
+      #div5 {
+          position: fixed;
+          width: 100px;
+          height: 100px;
+          background-color: green;
+          right: 0;
+          bottom: 0;
+      }
+  </style>
+</head>
+<body>
+<section>
+  <div id="div1">It's a static div!</div>
+  <div id="div2">It's a relative div!</div>
+  <div id="div3">It's a relative div!</div>
+  <div id="div4">
+    It's a relative div!
+    <div id="child">It's an absolute div with relative parent!</div>
+  </div>
+  <div id="div5">It's a fixed div!</div>
+</section>
+</body>
+</html>

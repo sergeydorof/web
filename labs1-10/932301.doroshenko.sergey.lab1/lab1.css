@@ -1,0 +1,133 @@
+header {
+    background: green;
+    color: white;
+    text-align: center;
+    font-size: 0.5em;
+    margin-bottom: 0;
+    padding: 1px;
+}
+
+ body {
+     margin: 0;
+ }
+
+a {
+    color: red;
+    text-align: center;
+    position: relative;
+    left: 35%;
+    margin: 5px;
+}
+
+h1 {
+    margin: 5px;
+}
+
+h3 {
+    margin: 5px;
+}
+
+h4 {
+    margin: 5px;
+}
+
+h5 {
+    margin: 5px;
+}
+
+p {
+    margin: 10px;
+}
+
+section {
+    line-height: 1;
+    margin-top: 0;
+    background: blue;
+    color: white;
+    width: 30%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding: 1px 15px;
+}
+
+footer {
+    background: green;
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0;
+    padding: 1px;
+}
+
+#div-left {
+    border: 3px solid white;
+    border-radius: 15px 0;
+    height: 50px;
+    width: 50px;
+    float: left;
+    margin-right: 15px;
+}
+
+.main_parent {
+    position: absolute;
+    right: 30px;
+    bottom: 40px;
+    width: 100px;
+    height: 75px;
+    border: 1px solid white;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 1px;
+}
+
+.mid_parent:nth-child(1) {
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+}
+
+.mid_parent:nth-child(2) {
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+}
+
+.left_child {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    border: 1px solid white;
+    margin: 1px;
+}
+
+.left_child:nth-child(1) {
+    background-color: green;
+}
+
+.right_child:nth-child(1) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.right_child:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    border: 1px solid white;
+    background-color: red;
+    margin: 1px;
+}
+
+.right_up_child {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    border: 1px solid white;
+    margin: 1px;
+}
+
+img {
+    position: absolute;
+    right: 30px;
+    bottom: 10px;
+}

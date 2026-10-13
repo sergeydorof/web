@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2.15</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            margin: 0;
+            padding: 8px; /* Небольшой отступ от краев браузера */
+        }
+
+        /* Контейнер для сброса пробелов между inline-block элементами (опционально, для точности) */
+        .blocks-container {
+            font-size: 0;
+        }
+
+        /* Стили для зеленых карточек */
+        .box {
+            display: inline-block;
+            width: 180px;
+            height: 90px;
+            background-color: aquamarine;
+            margin: 0 15px 15px 0; /* Отступы справа и снизу */
+            padding: 5px;
+            box-sizing: border-box;
+            vertical-align: top;
+            font-size: 16px; /* Восстанавливаем размер шрифта */
+        }
+
+        /* Стили для подвала */
+        .footer {
+            background-color: antiquewhite;
+            padding: 5px;
+            margin-right: 15px; /* Чтобы выровнять по правому краю с блоками */
+        }
+    </style>
+</head>
+<body>
+
+<div class="blocks-container">
+    <div class="box">I'm inline-block!</div>
+    <div class="box">I'm inline-block!</div>
+    <div class="box">I'm inline-block!</div>
+    <div class="box">I'm inline-block!</div>
+    <div class="box">I'm inline-block!</div>
+    <div class="box">I'm inline-block!</div>
+    <div class="box">I'm inline-block!</div>
+    <div class="box">I'm inline-block!</div>
+    <div class="box">I'm inline-block!</div>
+    <div class="box">I'm inline-block!</div>
+    <div class="box">I'm inline-block!</div>
+    <div class="box">I'm inline-block!</div>
+</div>
+
+<div class="footer">
+    There's no need for clear property!
+</div>
+
+</body>
+</html>

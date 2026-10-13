@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Columns Layout</title>
+    <style>
+        body {
+            margin: 20px;
+            font-family: sans-serif;
+        }
+        .wrapper {
+            width: 800px;
+            margin: 0 auto;
+        }
+        .buttons {
+            display: flex;
+        }
+        .buttons button {
+            flex: 1;
+            background-color: red;
+            color: white;
+            border: 1px solid darkred;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .buttons button:hover {
+            background-color: darkred;
+        }
+        .content {
+            display: flex;
+            height: 400px;
+            width: 100%;
+        }
+        .column {
+            transition: width 0.3s ease, padding 0.3s ease;
+            box-sizing: border-box;
+            overflow: hidden;
+            padding: 20px;
+        }
+        .column img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+            display: block;
+        }
+        .left-col {
+            background-color: blue;
+        }
+        .right-col {
+            background-color: green;
+        }
+
+        .state-left .left-col {
+            width: calc(100% - 20px);
+            /* Отступы: верх 20px, право 150px, низ 100px, лево 20px[cite: 9] */
+            padding: 20px 150px 100px 20px;
+        }
+        .state-left .right-col {
+            width: 20px;
+            padding: 0;
+        }
+        .state-left .right-col img { display: none; }
+
+        .state-both .left-col { width: 50%; }
+        .state-both .right-col { width: 50%; }
+
+        .state-right .left-col {
+            width: 20px;
+            padding: 0;
+        }
+        .state-right .left-col img { display: none; }
+        .state-right .right-col {
+            width: calc(100% - 20px);
+            /* Отступы: верх 20px, право 150px, низ 100px, лево 20px[cite: 10] */
+            padding: 20px 150px 100px 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="buttons">
+        <button id="btn-left">Левая колонка</button>
+        <button id="btn-both">Обе две</button>
+        <button id="btn-right">Правая колонка</button>
+    </div>
+
+    <div class="content state-both" id="content-container">
+        <div class="column left-col">
+            <img src="cat.jpg" alt="Кот">
+        </div>
+        <div class="column right-col">
+            <img src="dog.jpg" alt="Собака">
+        </div>
+    </div>
+</div>
+
+<script>
+    const container = document.getElementById('content-container');
+    const btnLeft = document.getElementById('btn-left');
+    const btnBoth = document.getElementById('btn-both');
+    const btnRight = document.getElementById('btn-right');
+
+    btnLeft.addEventListener('click', () => {
+        container.className = 'content state-left';
+    });
+
+    btnBoth.addEventListener('click', () => {
+        container.className = 'content state-both';
+    });
+
+    btnRight.addEventListener('click', () => {
+        container.className = 'content state-right';
+    });
+</script>
+
+</body>
+</html>

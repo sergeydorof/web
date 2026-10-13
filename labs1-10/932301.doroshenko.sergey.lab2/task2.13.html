@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2.13</title>
+    <style>
+        body {
+            /* Небольшой отступ от краев окна */
+            margin: 10px;
+        }
+
+        .container {
+            background-color: aqua; /* Бирюзовый фон на весь контейнер */
+            border: 1px solid green; /* Зеленая рамка */
+            display: flex;
+            /* ВАЖНО: nowrap запрещает блокам падать вниз при сужении */
+            flex-wrap: nowrap;
+            align-items: stretch; /* Колонки тянутся вниз на всю высоту контента */
+        }
+
+        .left-column {
+            width: 160px; /* Ширина левой колонки */
+            flex-shrink: 0; /* Запрещаем левой колонке сжиматься */
+            /* Фон прозрачный, поэтому под меню виден aqua от контейнера */
+        }
+
+        .nav-panel {
+            background-color: bisque; /* Бежевый фон только для самого меню */
+            padding: 10px 0;
+        }
+
+        .nav-panel ul {
+            margin: 0;
+            padding-left: 30px;
+        }
+
+        .content {
+            background-color: darkgray; /* Серый фон контента */
+            flex-grow: 1; /* Занимает всю оставшуюся ширину */
+            /* Убраны внутренние отступы (padding), чтобы текст был вплотную, как на скринах */
+        }
+
+        .hamster-img {
+            float: right; /* Текст обтекает картинку слева */
+            width: 45%; /* Хомяк занимает почти половину ширины серой области */
+            margin-left: 10px; /* Небольшой отступ текста от картинки */
+            margin-bottom: 5px;
+        }
+
+        .content p {
+            margin: 0; /* Убираем стандартные отступы у абзацев (как на вашем скриншоте) */
+        }
+
+        /* ВАЖНО: Заставляем 2-й абзац всегда начинаться строго под картинкой */
+        .content p:nth-of-type(2) {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Левая колонка -->
+    <div class="left-column">
+        <div class="nav-panel">
+            <ul>
+                <li>Home</li>
+                <li>Hours</li>
+                <li>Direction</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Серая область контента -->
+    <div class="content">
+        <!-- Укажите реальное имя вашего файла с хомяком -->
+        <img src="image.jpg" alt="Хомяк в короне" class="hamster-img">
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse mollis libero lacinia, dictum nulla quis, lobortis turpis. Quisque auctor porta convallis. Proin vulputate placerat lectus et imperdiet. Donec pulvinar tempor posuere. Fusce nibh dolor, ornare vel egestas in, condimentum vel mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam ac eleifend dui. Praesent malesuada sagittis odio vitae gravida. Donec sodales diam turpis, sed blandit ante bibendum sed. Vestibulum feugiat lectus a felis porttitor, id cursus purus ultricies. Nulla molestie pulvinar ipsum, eget fermentum urna ullamcorper non. In lacinia nisi at elit efficitur, ut congue nulla tempus. Donec et urna varius, efficitur felis at, blandit elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin quis convallis nibh, eget interdum turpis.</p>
+
+        <!-- Сюда применится правило clear: both и этот абзац уйдет под картинку -->
+        <p>Maecenas malesuada erat dictum felis ornare, id egestas augue mattis. Vivamus neque sapien, blandit nec accumsan in, lobortis faucibus quam. Cras porttitor, felis id consequat rhoncus, ipsum nunc pellentesque elit, quis rhoncus tortor ipsum blandit enim. Etiam ullamcorper turpis sit amet lectus bibendum, vel maximus ante bibendum. Pellentesque aliquet nisl ut dignissim malesuada. Morbi ac posuere nunc. Donec vitae pellentesque lectus. Sed sit amet purus pellentesque, maximus lorem nec, egestas massa. Fusce tempus sem non nunc finibus, ultrices sollicitudin mi porttitor. Ut sed justo nisl. Sed vel metus urna. Suspendisse semper diam vel pharetra hendrerit. Nulla ut justo elit. Aliquam pellentesque varius venenatis. Proin eu diam sed magna congue vehicula. Praesent eu enim ut ante vulputate posuere in quis enim. Integer ultrices augue rhoncus turpis pulvinar posuere.</p>
+
+        <p>Maecenas malesuada erat dictum felis ornare, id egestas augue mattis. Vivamus neque sapien, blandit nec accumsan in, lobortis faucibus quam. Cras porttitor, felis id consequat rhoncus, ipsum nunc pellentesque elit, quis rhoncus tortor ipsum blandit enim. Etiam ullamcorper turpis sit amet lectus bibendum, vel maximus ante bibendum. Pellentesque aliquet nisl ut dignissim malesuada. Morbi ac posuere nunc. Donec vitae pellentesque lectus. Sed sit amet purus pellentesque, maximus lorem nec, egestas massa. Fusce tempus sem non nunc finibus, ultrices sollicitudin mi porttitor. Ut sed justo nisl. Sed vel metus urna. Suspendisse semper diam vel pharetra hendrerit. Nulla ut justo elit. Aliquam pellentesque varius venenatis. Proin eu diam sed magna congue vehicula. Praesent eu enim ut ante vulputate posuere in quis enim. Integer ultrices augue rhoncus turpis pulvinar posuere.</p>
+    </div>
+</div>
+
+</body>
+</html>

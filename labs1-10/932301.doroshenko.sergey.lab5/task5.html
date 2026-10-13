@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Task</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+            margin: 0;
+            background-color: #fff;
+        }
+
+        .container {
+            width: 800px;
+            border: 1px solid #000;
+        }
+
+        .news-block {
+            background-color: #cffafe;
+            padding: 20px 20px 40px 20px;
+            border-bottom: 1px solid #000;
+            text-align: center;
+        }
+
+        .news-block:last-child {
+            border-bottom: none;
+        }
+
+        .news-block:hover {
+            background-color: #ff5252;
+        }
+
+        .news-block h2 {
+            text-align: left;
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .news-block p {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            background: linear-gradient(to bottom, #00d600, #00a300);
+            color: #fff;
+            border: 1px solid #008000;
+            padding: 8px 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 2px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .btn:active {
+            background: #00a300;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(255, 255, 255, 0.85);
+            z-index: 10;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #eaff7b;
+            padding: 30px;
+            width: 450px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 20;
+        }
+
+        .modal h2 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .modal p {
+            font-size: 14px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="news-block">
+        <h2>Новость 1</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae voluptatum suscipit sed delectus facere veritatis autem quisquam unde nam doloribus?</p>
+        <button class="btn">Открыть всплывающее окно</button>
+    </div>
+    <div class="news-block">
+        <h2>Новость 2</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae voluptatum suscipit sed delectus facere veritatis autem quisquam unde nam doloribus?</p>
+        <button class="btn">Открыть всплывающее окно</button>
+    </div>
+    <div class="news-block">
+        <h2>Новость 3</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae voluptatum suscipit sed delectus facere veritatis autem quisquam unde nam doloribus?</p>
+        <button class="btn">Открыть всплывающее окно</button>
+    </div>
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+<div class="modal" id="modal">
+    <h2 id="modal-title"></h2>
+    <p id="modal-text"></p>
+</div>
+
+<script>
+    const contentMap = {
+        'Новость 1': 'Новость 1: Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet asperiores aut nihil! Corporis debitis labore fugiat id, eligendi ratione veritatis!\n\nLorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam hic, ipsa, ullam, cupiditate eveniet at voluptate corrupti commodi nobis ratione voluptatem! Vel animi totam cupiditate doloribus ad ab exercitationem officia eveniet impedit? Deleniti quasi nisi consectetur perspiciatis quibusdam nostrum, enim perferendis nam, magni molestias recusandae id libero vitae, repudiandae praesentium.',
+
+        'Новость 2': 'Новость 2: Lorem ipsum, dolor sit amet consectetur adipisicing elit. A, alias.\n\nLorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam hic, ipsa, ullam, cupiditate eveniet at voluptate corrupti commodi nobis ratione voluptatem! Vel animi totam cupiditate doloribus ad ab exercitationem officia eveniet impedit? Deleniti quasi nisi consectetur perspiciatis quibusdam nostrum, enim perferendis nam, magni molestias recusandae id libero vitae, repudiandae praesentium.',
+
+        'Новость 3': 'Новость 3: Lorem ipsum, dolor sit amet consectetur adipisicing elit...'
+    };
+
+    const btns = document.querySelectorAll('.btn');
+    const overlay = document.getElementById('overlay');
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalText = document.getElementById('modal-text');
+
+    btns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const block = e.target.closest('.news-block');
+            const title = block.querySelector('h2').textContent;
+
+            modalTitle.textContent = title;
+            modalText.innerText = contentMap[title] || 'Контент отсутствует';
+
+            overlay.style.display = 'block';
+            modal.style.display = 'block';
+        });
+    });
+
+    overlay.addEventListener('click', () => {
+        overlay.style.display = 'none';
+        modal.style.display = 'none';
+    });
+</script>
+</body>
+</html>
