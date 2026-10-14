@@ -10,9 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const rabbit = document.getElementById('rabbit');
     const dove = document.getElementById('dove');
 
-    // =========================================
-    // Фокус 1. Занавес
-    // =========================================
     curtain.addEventListener('click', () => {
         stage.style.visibility = 'visible';
         curtain.classList.add('opened');
@@ -22,17 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1000);
     });
 
-    // =========================================
-    // Фокус 2. Свет (упрощен до клика)
-    // =========================================
     lampContainer.addEventListener('click', () => {
         lightBeam.classList.toggle('on');
         sceneObjects.classList.toggle('visible');
     });
 
-    // =========================================
-    // Фокус 3. Кролик и голубь
-    // =========================================
     let isAnimating = false;
 
     function doMagicTrick() {

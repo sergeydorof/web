@@ -10,7 +10,6 @@ body {
     background-color: #ffffff;
 }
 
-/* Синяя внешняя рамка калькулятора */
 .calculator-container {
     display: inline-block;
     border: 2px solid #5b93bc;
@@ -19,7 +18,6 @@ body {
     width: 270px;
 }
 
-/* Экран калькулятора */
 .display {
     width: 100%;
     height: 44px;
@@ -36,12 +34,10 @@ body {
     overflow: hidden;
 }
 
-/* Цвет для ранее введенных операторов и чисел */
 .display .history {
     color: #a0a0a0;
 }
 
-/* Сетка кнопок 5x4 */
 .buttons-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -49,7 +45,6 @@ body {
     gap: 6px;
 }
 
-/* Оформление кнопок */
 .btn {
     background: linear-gradient(to bottom, #f8f8f8 0%, #e2e2e2 100%);
     border: 1px solid #adadad;
@@ -73,12 +68,10 @@ body {
     background: #eaf1fb;
 }
 
-/* Кнопка 0 занимает 2 колонки по ширине */
 .btn-zero {
     grid-column: span 2;
 }
 
-/* Кнопка = занимает 2 строки по высоте */
 .btn-equals {
     grid-row: span 2;
 }

@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Разделяем историю (серый цвет) и текущий ввод (черный цвет)
         const lastSpaceIndex = expression.lastIndexOf(' ');
         if (lastSpaceIndex !== -1) {
             const historyPart = expression.substring(0, lastSpaceIndex + 1);

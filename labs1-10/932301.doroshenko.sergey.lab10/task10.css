@@ -1,4 +1,3 @@
-/* Базовые стили для черного фона и скрытия скроллов */
 body, html {
     margin: 0;
     padding: 0;
@@ -8,9 +7,6 @@ body, html {
     overflow: hidden;
 }
 
-/* =========================================
-   Фокус 1. Занавес
-   ========================================= */
 #curtain {
     position: absolute;
     top: 0;
@@ -34,9 +30,6 @@ body, html {
     transition: transform 1s ease;
 }
 
-/* =========================================
-   Фокус 2. Да будет свет
-   ========================================= */
 #stage {
     position: relative;
     width: 100%;
@@ -80,9 +73,6 @@ body, html {
     opacity: 0.5;
 }
 
-/* =========================================
-   Скрытые во тьме объекты
-   ========================================= */
 #scene-objects {
     opacity: 0;
     transition: opacity 0.2s ease;
@@ -102,45 +92,39 @@ body, html {
     z-index: 3;
 }
 
-/* =========================================
-   Фокус 3. Кролик и его друзья
-   ========================================= */
 #magic-hat-container {
     position: absolute;
     bottom: 5%;
     right: 25%;
     width: 180px;
-    height: 380px; /* Увеличена высота контейнера, чтобы животные свободно помещались сверху */
+    height: 380px;
     z-index: 3;
-    overflow: hidden; /* Обрезает животное только снизу, под шляпой */
+    overflow: hidden;
 }
 
 #hat {
     position: absolute;
     bottom: 0;
     width: 100%;
-    z-index: 3; /* Шляпа строго спереди животных */
+    z-index: 3;
 }
 
-/* Настройки для животных */
 .animal {
     position: absolute;
-    bottom: 160px; /* Выставляем высоту выезда над шляпой */
-    width: 50%;   /* Подходящий размер животных */
-    z-index: 2;   /* Находятся за шляпой */
+    bottom: 160px;
+    width: 50%;
+    z-index: 2;
     cursor: pointer;
     transition: transform 0.5s ease;
 
     left: 50%;
 }
 
-/* Когда животное показано — оно над шляпой */
 .visible-animal {
     transform: translate(-50%, 0);
     pointer-events: auto;
 }
 
-/* Когда спрятано — уезжает глубоко вниз под шляпу */
 .hidden-animal {
     transform: translate(-50%, 280px);
     pointer-events: none;

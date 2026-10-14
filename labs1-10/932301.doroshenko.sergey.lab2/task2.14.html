@@ -3,78 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task 2.14</title>
+    <title>task2.14.html</title>
     <style>
-        /* Базовые настройки страницы */
         body {
-            font-family: "Times New Roman", Times, serif; /* Шрифт с засечками, как на фото */
-            margin: 10px; /* Небольшой отступ от краев браузера (по желанию) */
+            font-family: "Times New Roman", Times, serif;
+            margin: 10px;
         }
 
-        /* Главный контейнер (зеленая рамка) */
         .container {
-            display: flex; /* Используем Flexbox для выстраивания колонок */
+            display: flex;
             border: 1px solid green;
             width: 100%;
         }
 
-        /* Левая колонка (сайдбар) */
         .sidebar {
             width: 25%;
-            background-color: cyan; /* Голубой фон */
+            background-color: cyan;
         }
 
-        /* Бежевый блок для меню */
         .nav-box {
-            background-color: bisque; /* Бежевый фон */
+            background-color: bisque;
             padding: 5px 0;
         }
 
-        /* Настройка списка (ul) */
         .nav-list {
             margin: 0;
-            padding-left: 30px; /* Отступ для маркеров списка */
+            padding-left: 30px;
         }
 
         .nav-list li {
-            list-style-type: disc; /* Маркеры (точки) */
+            list-style-type: disc;
         }
 
-        /* Правая колонка с текстом */
         .content {
             width: 75%;
-            background-color: darkgray; /* Серый фон */
-            /* Текст на скринах прилегает вплотную к краям, поэтому padding: 0 */
+            background-color: darkgray;
         }
 
-        /* =========================================
-           АДАПТИВНОСТЬ ДЛЯ УЗКИХ ЭКРАНОВ (Task 2.14.2)
-           Срабатывает, если ширина окна 600px или меньше
-           ========================================= */
         @media (max-width: 600px) {
             .container {
-                flex-direction: column; /* Элементы выстраиваются друг под другом */
+                flex-direction: column;
             }
 
             .sidebar {
                 width: 100%;
-                /* Добавляем внутренние отступы, чтобы было видно голубой фон сверху и снизу от бежевого блока */
                 padding: 20px 0;
             }
 
             .nav-box {
-                text-align: center; /* Центрируем содержимое */
+                text-align: center;
             }
 
             .nav-list {
                 padding: 0;
                 display: flex;
-                justify-content: center; /* Центрируем пункты меню */
-                gap: 15px; /* Расстояние между словами */
+                justify-content: center;
+                gap: 15px;
             }
 
             .nav-list li {
-                list-style-type: none; /* Убираем маркеры (точки) у списка */
+                list-style-type: none;
             }
 
             .content {
@@ -86,7 +74,6 @@
 <body>
 
 <div class="container">
-    <!-- Блок навигации -->
     <div class="sidebar">
         <div class="nav-box">
             <ul class="nav-list">
@@ -97,7 +84,6 @@
         </div>
     </div>
 
-    <!-- Блок контента -->
     <div class="content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse mollis libero lacinia, dictum nulla quis, lobortis turpis. Quisque auctor porta convallis. Proin vulputate placerat lectus et imperdiet. Donec pulvinar tempor posuere. Fusce nibh dolor, ornare vel egestas in, condimentum vel mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam ac eleifend dui. Praesent malesuada sagittis odio vitae gravida. Donec sodales diam turpis, sed blandit ante bibendum sed. Vestibulum feugiat lectus a felis porttitor, id cursus purus ultricies. Nulla molestie pulvinar ipsum, eget fermentum urna ullamcorper non. In lacinia nisi at elit efficitur, ut congue nulla tempus. Donec et urna varius, efficitur felis at, blandit elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin quis convallis nibh, eget interdum turpis.
         <br>
